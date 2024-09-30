@@ -1,4 +1,5 @@
 # https://tailscale.com/kb/1018/acls
+# https://tailscale.com/kb/1337/acl-syntax
 resource "tailscale_acl" "as_hujson" {
   acl = <<EOF
     {
