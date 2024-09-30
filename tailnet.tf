@@ -5,25 +5,18 @@ resource "tailscale_acl" "as_hujson" {
       "tagOwners": {
         // tags that activate / permit features
         "tag:feature-exitNode": [
-          "the-technat@github",
+          "autogroup:admin",
         ],
         "tag:feature-funnel": [
-          "the-technat@github",
-        ],
-        "tag:k8s-operator": [ // tailscale-operator in k8s needs this tag
-          "the-technat@github",
+          "autogroup:admin",
         ],
 
         // tags that control access
         "tag:acl-server": [ // the server network
-          "the-technat@github",
+          "autogroup:admin",
         ],
-        "tag:acl-admin": [ // the admin network
-          "the-technat@github",
-        ],
-        "tag:k8s": [ // k8s exposed services via tailscale-operator
-          "the-technat@github",
-          "tag:k8s-operator",
+        "tag:acl-backup": [
+          "autogroup:admin",
         ],
       },
       "autoApprovers": {
@@ -40,11 +33,8 @@ resource "tailscale_acl" "as_hujson" {
             "funnel",
           ],
         },
-        {"target": ["100.95.156.71"], "attr": ["funnel"]},
-        {"target": ["100.103.19.50"], "attr": ["funnel"]},
-        {"target": ["100.85.236.124"], "attr": ["mullvad"]},
-        {"target": ["100.123.58.60"], "attr": ["mullvad"]},
-        {"target": ["100.103.19.50"], "attr": ["mullvad"]},
+        {"target": ["the-technat@github"], "attr": ["funnel"]},
+        {"target": ["the-technat@github"], "attr": ["mullvad"]},
       ],
       "acls": [
         // internet + k8s is always open for everyone (also via exitNodes)
@@ -55,7 +45,6 @@ resource "tailscale_acl" "as_hujson" {
           ],
           "dst": [
             "autogroup:internet:*",
-            "tag:k8s:*",
           ],
         },
         // server net can access server net
@@ -68,26 +57,23 @@ resource "tailscale_acl" "as_hujson" {
             "tag:acl-server:*",
           ],
         },
-        // admin can access server
         {
           "action": "accept",
           "src": [
-            "tag:acl-admin",
+            "tag:acl-backup",
           ],
           "dst": [
-            "tag:acl-server:*",
+            "tag:acl-backup:*",
           ],
         },
-        // me can access admin and server net
+        // me can access everything
         {
           "action": "accept",
           "src": [
             "the-technat@github",
           ],
           "dst": [
-            "the-technat@github:*",
-            "tag:acl-server:*",
-            "tag:acl-admin:*",
+            "*",
           ],
         },
       ],
@@ -100,21 +86,8 @@ resource "tailscale_acl" "as_hujson" {
           ],
           "dst": [
             "tag:acl-server",
-            "tag:acl-admin",
-            "the-technat@github",
-          ],
-          "users": [
-            "autogroup:nonroot",
-          ],
-        },
-        {
-          // admin can ssh into server (accept)
-          "action": "accept",
-          "src": [
-            "tag:acl-admin",
-          ],
-          "dst": [
-            "tag:acl-server",
+            "tag:acl-backup",
+            "autogroup:self",
           ],
           "users": [
             "autogroup:nonroot",
@@ -129,11 +102,12 @@ resource "tailscale_dns_preferences" "tailnet" {
   magic_dns = true
 }
 
-resource "tailscale_tailnet_settings" "tailnet" {
-  devices_approval_on                         = true
-  devices_auto_updates_on                     = true
-  devices_key_duration_days                   = 180
-  users_approval_on                           = true
-  users_role_allowed_to_join_external_tailnet = "member"
-  posture_identity_collection_on              = true
-}
+# creation currently returns "invalid actor (500)"
+# resource "tailscale_tailnet_settings" "tailnet" {
+#   devices_approval_on                         = true
+#   devices_auto_updates_on                     = true
+#   devices_key_duration_days                   = 180
+#   users_approval_on                           = true
+#   users_role_allowed_to_join_external_tailnet = "member"
+#   posture_identity_collection_on              = true
+# }
