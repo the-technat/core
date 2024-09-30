@@ -129,9 +129,11 @@ resource "tailscale_dns_preferences" "tailnet" {
   magic_dns = true
 }
 
-# resource "tailscale_tailnet_settings" "tailnet" {
-#   devices_approval_on       = true
-#   devices_auto_updates_on   = true
-#   devices_key_duration_days = 30
-#   users_approval_on         = true
-# }
+resource "tailscale_tailnet_settings" "tailnet" {
+  devices_approval_on                         = true
+  devices_auto_updates_on                     = true
+  devices_key_duration_days                   = 180
+  users_approval_on                           = true
+  users_role_allowed_to_join_external_tailnet = "member"
+  posture_identity_collection_on              = true
+}
