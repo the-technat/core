@@ -74,7 +74,7 @@ resource "tailscale_acl" "as_hujson" {
             "the-technat@github",
           ],
           "dst": [
-            "*",
+            "*:*",
           ],
         },
       ],
