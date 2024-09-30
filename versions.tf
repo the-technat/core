@@ -1,4 +1,12 @@
 terraform {
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "the-technat"
+
+    workspaces {
+      name = "core"
+    }
+  }
   required_providers {
     tailscale = {
       source  = "tailscale/tailscale"
