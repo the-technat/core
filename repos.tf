@@ -1,4 +1,8 @@
 # All my GH repos, excluding existing archives & forks
+data "github_repository" "core" {
+  full_name = "the-technat/core"
+}
+
 resource "github_repository" "account-nuker" {
   name        = "account-nuker"
   description = "Nukes cloud accounts on a schedule"
@@ -25,7 +29,7 @@ resource "github_repository" "tevbox" {
   has_wiki     = false
 }
 resource "github_repository" "the-technat" {
-  name         = "the-techna"
+  name         = "the-technat"
   description  = "My personal website where I share my (sometimes useless) knowledge with the world"
   visibility   = "public"
   homepage_url = "technat.ch"
