@@ -133,3 +133,14 @@ resource "github_repository" "salami" {
   has_projects = false
   has_wiki     = false
 }
+
+resource "github_repository" "renovate-config" {
+  name        = "renovate-config"
+  description = "Self-hosted renovate in Github Actions"
+  visibility  = "public"
+
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_downloads   = false
+}
