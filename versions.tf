@@ -12,5 +12,9 @@ terraform {
       source  = "tailscale/tailscale"
       version = "0.17.1"
     }
+    hetznerdns = {
+      source  = "timohirt/hetznerdns"
+      version = "2.2.0"
+    }
   }
 }

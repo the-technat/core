@@ -17,3 +17,10 @@ variable "tailscale_tailnet" {
   description = "Name of the tailnet we operate on (tailnet was created by signin-up using Github)"
   default     = "the-technat.github"
 }
+
+### Hetzner DNS
+variable "hetzner_dns_token" {
+  type        = string
+  sensitive   = true
+  description = "API Token for Hetzner DNS, provided by TFC"
+}

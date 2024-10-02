@@ -8,7 +8,7 @@ As an engineer who has been born into the cloud-native world, I grew up with "Ev
 
 ## How?
 
-I signed-up on [Terraform cloud](https://app.terraform.io/session) and created an organization for my Github user with one default project and workspace in it named like this repository. I installed the Terraform cloud Github App into my account so that VCS-driven workflows can act on my behalf.
+I signed-up on [Terraform cloud](https://app.terraform.io/session) and created an organization for my Github user with one default project and workspace in it named like this repository. I installed the Terraform Cloud Github App into my account so that VCS-driven workflows can act on my behalf.
 
 Everything in that workspace has been created/configured manually.
 
@@ -21,3 +21,7 @@ Renovate has been configured using Mend's SaaS version. You can access it at [de
 Signed-up using Github, some settings can only be defined in the UI.
 
 Configures basic settings and ACL's.
+
+## DNS
+
+My DNS provider is Hetzner DNS.
