@@ -1,3 +1,4 @@
+# All my GH repos, excluding existing archives & forks
 resource "github_repository" "account-nuker" {
   name        = "account-nuker"
   description = "Nukes cloud accounts on a schedule"
@@ -24,9 +25,10 @@ resource "github_repository" "tevbox" {
   has_wiki     = false
 }
 resource "github_repository" "the-technat" {
-  name        = "the-techna"
-  description = "My personal website where I share my (sometimes useless) knowledge with the world"
-  visibility  = "public"
+  name         = "the-techna"
+  description  = "My personal website where I share my (sometimes useless) knowledge with the world"
+  visibility   = "public"
+  homepage_url = "technat.ch"
 
   has_projects = false
   has_wiki     = false
@@ -46,9 +48,10 @@ resource "github_repository" "dotfiles" {
   has_wiki     = false
 }
 resource "github_repository" "alleaffengaffen_ch" {
-  name        = "alleaffengaffen.ch"
-  description = "alleaffengaffen.ch website"
-  visibility  = "public"
+  name         = "alleaffengaffen.ch"
+  description  = "alleaffengaffen.ch website"
+  visibility   = "public"
+  homepage_url = "alleaffengaffen.ch"
 
   has_projects = false
   has_wiki     = false
@@ -125,57 +128,4 @@ resource "github_repository" "salami" {
 
   has_projects = false
   has_wiki     = false
-}
-
-import {
-  id = "salami"
-  to = github_repository.salami
-}
-import {
-  id = "lambda_form_confirmation_mail"
-  to = github_repository.lambda_form_confirmation_mail
-}
-import {
-  id = "argocd-testing"
-  to = github_repository.argocd-testing
-}
-import {
-  id = "topologySpreadConstraints"
-  to = github_repository.topologySpreadConstraints
-}
-import {
-  id = "cilium-testing"
-  to = github_repository.cilium-testing
-}
-import {
-  id = "cks-training"
-  to = github_repository.cks-training
-}
-import {
-  id = "technat.dev"
-  to = github_repository.technat_dev
-}
-import {
-  id = "self-host-planning-poker"
-  to = github_repository.self-host-planning-poker
-}
-import {
-  id = "alleaffengaffen.ch"
-  to = github_repository.alleaffengaffen_ch
-}
-import {
-  id = "dotfiles"
-  to = github_repository.dotfiles
-}
-import {
-  id = "the-technat"
-  to = github_repository.the-technat
-}
-import {
-  id = "tevbox"
-  to = github_repository.tevbox
-}
-import {
-  id = "grapes"
-  to = github_repository.grapes
 }
