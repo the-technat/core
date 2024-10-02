@@ -14,7 +14,7 @@ Everything in that workspace has been created/configured manually.
 
 ## Renovate
 
-Renovate has been configured using Mend's SaaS version. You can access it at [developer.mend.io](https://developer.mend.io)
+Renovate has been configured using Mend's SaaS version. Install the [Renovate Github App](https://github.com/apps/renovate) and give it access to all repositoris. You can access it at [developer.mend.io](https://developer.mend.io).
 
 ## Tailscale
 
