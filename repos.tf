@@ -6,3 +6,7 @@ resource "github_repository" "account-nuker" {
   has_projects = false
   has_wiki     = false
 }
+import {
+  id = "account-nuker"
+  to = github_repository.account-nuker
+}
