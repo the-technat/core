@@ -12,10 +12,6 @@ I signed-up on [Terraform cloud](https://app.terraform.io/session) and created a
 
 Everything in that workspace has been created/configured manually.
 
-## Renovate
-
-Renovate has been configured using Mend's SaaS version. Install the [Renovate Github App](https://github.com/apps/renovate) and give it access to all repositoris. You can access it at [developer.mend.io](https://developer.mend.io).
-
 ## Tailscale
 
 Signed-up using Github, some settings can only be defined in the UI.
