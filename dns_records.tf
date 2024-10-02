@@ -46,7 +46,7 @@ resource "hetznerdns_record" "gh_pages_txt" {
 # SRV records
 resource "hetznerdns_record" "flasche_srv" {
   zone_id = hetznerdns_zone.alleaffengaffen_ch.id
-  name    = "_minecraft._tcp"
+  name    = "_minecraft._tcp.flasche"
   value   = "0 0 25654 flasche.alleaffengaffen.ch."
   type    = "SRV"
   ttl     = 3600
