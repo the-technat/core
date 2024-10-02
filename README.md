@@ -24,4 +24,4 @@ Configures basic settings and ACL's.
 
 ## DNS
 
-My DNS provider is Hetzner DNS.
+My DNS provider is Hetzner DNS. There are some zones and records defined in this repo. 

@@ -24,3 +24,11 @@ variable "hetzner_dns_token" {
   sensitive   = true
   description = "API Token for Hetzner DNS, provided by TFC"
 }
+
+
+### Github
+variable "github_token" {
+  type        = string
+  sensitive   = true
+  description = "The only GH PAT created manually, provided by TFC"
+}

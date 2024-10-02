@@ -7,3 +7,7 @@ provider "tailscale" {
 provider "hetznerdns" {
   apitoken = var.hetzner_dns_token
 }
+
+provider "github" {
+  token = var.github_token
+}

@@ -16,5 +16,9 @@ terraform {
       source  = "timohirt/hetznerdns"
       version = "2.2.0"
     }
+    github = {
+      source  = "integrations/github"
+      version = "6.3.0"
+    }
   }
 }
