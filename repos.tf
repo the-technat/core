@@ -1,13 +1,4 @@
 # All my GH repos, excluding existing archives & forks
-data "github_repositories" "all_repos" {
-  query           = "org:the-technat"
-  include_repo_id = true
-}
-
-data "github_repository" "core" {
-  full_name = "the-technat/core"
-}
-
 resource "github_repository" "account-nuker" {
   name        = "account-nuker"
   description = "Nukes cloud accounts on a schedule"

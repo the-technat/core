@@ -32,3 +32,10 @@ variable "github_token" {
   sensitive   = true
   description = "The only GH PAT created manually, provided by TFC"
 }
+
+### Terraform Cloud
+variable "tfc_token" {
+  type        = string
+  sensitive   = true
+  description = "Terraform Cloud token, provided by TFC"
+}

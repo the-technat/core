@@ -11,3 +11,7 @@ provider "hetznerdns" {
 provider "github" {
   token = var.github_token
 }
+
+provider "tfe" {
+  token = var.tfc_token
+}

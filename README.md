@@ -30,3 +30,9 @@ My DNS provider is Hetzner DNS. There are some zones and records defined in this
 Token is a GH PAT with sufficient permissions and no expiration, added to the workspace variables.
 
 Manages my Github repos and stuff in them.
+
+## Terraform Cloud
+
+Token is created for my User with no expiration, added to the workspace variables.
+
+Manages organizations, projects, workspaces and more.
