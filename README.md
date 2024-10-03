@@ -1,6 +1,6 @@
 # core
 
-A humble try to define everything as code
+A humble attempt to define core infrastructure as code.
 
 ## Why? 
 
@@ -10,14 +10,23 @@ As an engineer who has been born into the cloud-native world, I grew up with "Ev
 
 I signed-up on [Terraform cloud](https://app.terraform.io/session) and created an organization for my Github user with one default project and workspace in it named like this repository. I installed the Terraform Cloud Github App into my account so that VCS-driven workflows can act on my behalf.
 
-Everything in that workspace has been created/configured manually.
+Everything in that workspace and this repo has been created/configured manually.
 
 ## Tailscale
 
-Signed-up using Github, some settings can only be defined in the UI.
+Token is an OAuth client generated manually and added to the workspace variables.
 
+Signed-up using Github, some settings can only be defined in the UI.
 Configures basic settings and ACL's.
 
 ## DNS
 
+Token is an API token generated manually and added to the workspace variables.
+
 My DNS provider is Hetzner DNS. There are some zones and records defined in this repo. 
+
+## Github
+
+Token is a GH PAT with sufficient permissions and no expiration, added to the workspace variables.
+
+Manages my Github repos and stuff in them.

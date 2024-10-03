@@ -13,16 +13,20 @@ resource "github_repository" "account-nuker" {
   description = "Nukes cloud accounts on a schedule"
   visibility  = "public"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 resource "github_repository" "grapes" {
   name        = "grapes"
   description = "Kubernetes Cluster Factory"
   visibility  = "public"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 
 resource "github_repository" "tevbox" {
@@ -30,8 +34,10 @@ resource "github_repository" "tevbox" {
   description = "Spin up a development box in the cloud in no time"
   visibility  = "public"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 resource "github_repository" "the-technat" {
   name         = "the-technat"
@@ -39,8 +45,10 @@ resource "github_repository" "the-technat" {
   visibility   = "public"
   homepage_url = "technat.ch"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 
   pages {
     build_type = "workflow"
@@ -53,8 +61,10 @@ resource "github_repository" "dotfiles" {
   visibility  = "public"
   topics      = ["chezmoi"]
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 resource "github_repository" "alleaffengaffen_ch" {
   name         = "alleaffengaffen.ch"
@@ -62,8 +72,10 @@ resource "github_repository" "alleaffengaffen_ch" {
   visibility   = "public"
   homepage_url = "alleaffengaffen.ch"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 
   pages {
     build_type = "workflow"
@@ -75,8 +87,10 @@ resource "github_repository" "self-host-planning-poker" {
   description = "A hassle-free Planning Poker application to deploy everywhere."
   visibility  = "public"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 resource "github_repository" "technat_dev" {
 
@@ -84,32 +98,40 @@ resource "github_repository" "technat_dev" {
   description = "Technat's truly unique homelab"
   visibility  = "public"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 resource "github_repository" "cks-training" {
   name        = "cks-training"
   description = "Resources related to my CKS training"
   visibility  = "public"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 resource "github_repository" "cilium-testing" {
   name        = "cilium-testing"
   description = "Repo related to testing things around Cilium"
   visibility  = "public"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 resource "github_repository" "topologySpreadConstraints" {
   name        = "topologySpreadConstraints"
   description = "Testing topologySpreadConstraints configurations to find bad and good patterns"
   visibility  = "public"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 
 resource "github_repository" "argocd-testing" {
@@ -117,8 +139,10 @@ resource "github_repository" "argocd-testing" {
   description = "Testing resources around Argo CD"
   visibility  = "public"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 
 resource "github_repository" "lambda_form_confirmation_mail" {
@@ -126,8 +150,10 @@ resource "github_repository" "lambda_form_confirmation_mail" {
   description = "Simple lambda written in Go that sends a mail using SMTP to a given address with the content of the JSON that was submitted"
   visibility  = "public"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 
 resource "github_repository" "salami" {
@@ -135,8 +161,10 @@ resource "github_repository" "salami" {
   description = "The best name for a cloud-native software that I'm probably never gonna write"
   visibility  = "public"
 
-  has_projects = false
-  has_wiki     = false
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
 }
 
 resource "github_repository" "renovate-config" {
@@ -147,5 +175,5 @@ resource "github_repository" "renovate-config" {
   has_projects    = false
   has_wiki        = false
   has_discussions = false
-  has_downloads   = false
+  has_issues      = true
 }
