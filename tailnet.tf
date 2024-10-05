@@ -67,31 +67,55 @@ resource "tailscale_acl" "as_hujson" {
             "tag:acl-backup:*",
           ],
         },
-        // me can access everything
+        // me can access my own devices and acl-server 
         {
           "action": "accept",
           "src": [
             "the-technat@github",
           ],
           "dst": [
-            "*:*",
+            "the-technat@github:*",
+            "tag:acl-server:*",
+          ],
+        },
+        // me can access acl-backup restricted
+        {
+          "action": "accept",
+          "src": [
+            "the-technat@github",
+          ],
+          "dst": [
+            "tag:acl-backup:5000,5001,443,80",
           ],
         },
       ],
       "ssh": [
         {
-          // me can ssh into all servers (check)
+          // me can ssh into acl-backup with checking
           "action": "check",
           "src": [
             "the-technat@github",
           ],
           "dst": [
-            "tag:acl-server",
             "tag:acl-backup",
+          ],
+          "users": [
+            "autogroup:nonroot",
+          ],
+        },
+        {
+          // me can ssh into acl-server and my own devices without asking
+          "action": "accept",
+          "src": [
+            "the-technat@github",
+          ],
+          "dst": [
+            "tag:acl-server",
             "autogroup:self",
           ],
           "users": [
             "autogroup:nonroot",
+            "root",
           ],
         },
       ],
