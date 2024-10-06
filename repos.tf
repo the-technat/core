@@ -168,3 +168,14 @@ resource "github_repository" "renovate-config" {
   has_discussions = false
   has_issues      = true
 }
+
+resource "github_repository" "devcontainers" {
+  name        = "devcontainers"
+  description = "dotfiles and devcontainer.json"
+  visibility  = "public"
+
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
+}
