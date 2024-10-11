@@ -94,9 +94,9 @@ resource "github_repository" "technat_dev" {
   has_discussions = false
   has_issues      = true
 }
-resource "github_repository" "cks-training" {
-  name        = "cks-training"
-  description = "Resources related to my CKS training"
+resource "github_repository" "cncf-training" {
+  name        = "cncf-training"
+  description = "Resources related to my CKS,CKA,CKAD training"
   visibility  = "public"
 
   has_projects    = false
