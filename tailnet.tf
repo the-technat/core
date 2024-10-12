@@ -38,7 +38,7 @@ resource "tailscale_acl" "as_hujson" {
         {"target": ["the-technat@github"], "attr": ["mullvad"]},
       ],
       "acls": [
-        // internet + k8s is always open for everyone (also via exitNodes)
+        // internet is always open for everyone (also via exitNodes)
         {
           "action": "accept",
           "src": [
@@ -85,7 +85,7 @@ resource "tailscale_acl" "as_hujson" {
             "the-technat@github",
           ],
           "dst": [
-            "tag:acl-backup:5000,5001,443,80",
+            "tag:acl-backup:5000,5001,443,80,22",
           ],
         },
       ],
