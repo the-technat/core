@@ -85,7 +85,7 @@ resource "tailscale_acl" "as_hujson" {
             "the-technat@github",
           ],
           "dst": [
-            "tag:acl-backup:5000,5001,443,80,22",
+            "tag:acl-backup:5000,5001,443,80,22,445",
           ],
         },
       ],
