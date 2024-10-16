@@ -171,7 +171,18 @@ resource "github_repository" "renovate-config" {
 
 resource "github_repository" "devcontainers" {
   name        = "devcontainers"
-  description = "dotfiles and devcontainer.json"
+  description = "devcontainer.json for various use-cases"
+  visibility  = "public"
+
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
+}
+
+resource "github_repository" "capi" {
+  name        = "capi"
+  description = "Cluster-API PoC"
   visibility  = "public"
 
   has_projects    = false
