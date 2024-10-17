@@ -11,7 +11,7 @@ resource "hetznerdns_record" "root_a" {
 resource "hetznerdns_record" "flasche_a" {
   zone_id = hetznerdns_zone.alleaffengaffen_ch.id
   name    = "flasche"
-  value   = "162.55.235.223"
+  value   = "45.43.163.225"
   type    = "A"
   ttl     = 3600
 }
