@@ -59,7 +59,7 @@ resource "github_repository" "dotfiles" {
 }
 resource "github_repository" "alleaffengaffen_ch" {
   name         = "alleaffengaffen.ch"
-  description  = "alleaffengaffen.ch website"
+  description  = "A website interesting for monkeys."
   visibility   = "public"
   homepage_url = "alleaffengaffen.ch"
 
