@@ -190,8 +190,3 @@ resource "github_repository" "cappy" {
   has_discussions = false
   has_issues      = true
 }
-
-moved {
-  from = github_repository.capi
-  to   = github_repository.cappy
-}
