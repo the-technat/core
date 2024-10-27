@@ -50,3 +50,5 @@ Manages projects, vault secrets and more.
 Account has been registered manually (of course) and the only resources created so far are an IDP and a role for Terraform Cloud.
 
 Both according to [this blog post](https://aws.amazon.com/blogs/apn/simplify-and-secure-terraform-workflows-on-aws-with-dynamic-provider-credentials/).
+
+**Note**: Every resource must be tagged with "managed-by=terraform". This is because our [account-nuker](https://github.com/the-technat/account-nuker) filters resources with this tag form his regular nuke.
