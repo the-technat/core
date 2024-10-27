@@ -10,3 +10,17 @@ resource "tfe_workspace" "cappy" {
     github_app_installation_id = local.tfc_github_app_installation_id
   }
 }
+
+resource "tfe_variable" "tfc_aws_run_role_arn_cappy" {
+  key          = "TFC_AWS_RUN_ROLE_ARN"
+  value        = aws_iam_role.cappy.arn
+  category     = "env"
+  workspace_id = tfe_workspace.cappy.id
+}
+
+resource "tfe_variable" "tfc_aws_provider_auth_cappy" {
+  key          = "TFC_AWS_PROVIDER_AUTH"
+  value        = "true"
+  category     = "env"
+  workspace_id = tfe_workspace.cappy.id
+}

@@ -18,3 +18,7 @@ data "tfe_organization" "technat" {
 
 data "aws_caller_identity" "current" {}
 
+
+data "aws_iam_openid_connect_provider" "tfc" {
+  url = "https://app.terraform.io"
+}

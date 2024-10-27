@@ -51,4 +51,4 @@ Account has been registered manually (of course) and the only resources created 
 
 Both according to [this blog post](https://aws.amazon.com/blogs/apn/simplify-and-secure-terraform-workflows-on-aws-with-dynamic-provider-credentials/).
 
-**Note**: Every resource must be tagged with "managed-by=terraform". This is because our [account-nuker](https://github.com/the-technat/account-nuker) filters resources with this tag form his regular nuke.
+**Note**: Every resource must be tagged with "managed-by=terraform". This is because our [account-nuker](https://github.com/the-technat/account-nuker) filters resources with this tag from his regular nuke.
