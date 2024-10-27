@@ -1,7 +1,7 @@
 terraform {
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "the-technat"
+    organization = "technat"
 
     workspaces {
       name = "core"
