@@ -180,8 +180,8 @@ resource "github_repository" "devcontainers" {
   has_issues      = true
 }
 
-resource "github_repository" "capi" {
-  name        = "capi"
+resource "github_repository" "cappy" {
+  name        = "cappy"
   description = "Cluster-API PoC"
   visibility  = "public"
 
@@ -189,4 +189,9 @@ resource "github_repository" "capi" {
   has_wiki        = false
   has_discussions = false
   has_issues      = true
+}
+
+moved {
+  from = github_repository.capi
+  to   = github_repository.cappy
 }
