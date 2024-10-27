@@ -39,3 +39,17 @@ variable "tfc_token" {
   sensitive   = true
   description = "Terraform Cloud token, provided by TFC"
 }
+
+### Hashicorp Cloud
+variable "hcp_client_id" {
+  type        = string
+  sensitive   = true
+  description = "HCP Client ID, provided by TFC"
+}
+
+variable "hcp_client_secret" {
+  type        = string
+  sensitive   = true
+  description = "HCP Client Secret, provided by TFC"
+}
+

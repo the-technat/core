@@ -15,3 +15,9 @@ provider "github" {
 provider "tfe" {
   token = var.tfc_token
 }
+
+provider "hcp" {
+  client_id     = var.hcp_client_id
+  client_secret = var.hcp_client_secret
+  project_id    = "core" # the default project"
+}

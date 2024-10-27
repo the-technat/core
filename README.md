@@ -36,3 +36,11 @@ Manages my Github repos and stuff in them.
 Token is created for my User with no expiration, added to the workspace variables.
 
 Manages organizations, projects, workspaces and more.
+
+## Hashicorp Cloud
+
+The organization `technat` is created manually with the default project beeing "core".
+
+Credentials are created according to [this doc](https://registry.terraform.io/providers/hashicorp/hcp/latest/docs/guides/auth) for the entire organization.
+
+Manages projects, vault secrets and more.
