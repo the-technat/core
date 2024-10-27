@@ -19,5 +19,5 @@ provider "tfe" {
 provider "hcp" {
   client_id     = var.hcp_client_id
   client_secret = var.hcp_client_secret
-  project_id    = "core" # the default project"
+  project_id    = "15fd266b-b556-4ea4-89e2-8232dc363b30" # the default project named core
 }
