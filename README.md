@@ -4,51 +4,58 @@ A humble attempt to define core infrastructure as code.
 
 ## Why? 
 
-As an engineer who has been born into the cloud-native world, I grew up with "Everything as code" is the way to do it. So that's why I'll try here in this repo, to define common infrastructure things like Tailnet's, DNS, repositories, workspaces and more in code.
+As an engineer who has been born into the cloud-native world, I grew up with "Everything as code" is the way to do it. So that's why I try here in this repo, to define common infrastructure things like Github Repos, AWS IAM resources, DNS zones and records and more in code.
 
 ## How?
 
 I signed-up on [Terraform cloud](https://app.terraform.io/session) and created an organization for my Github user with one default project and workspace in it named like this repository. I installed the Terraform Cloud Github App into my account so that VCS-driven workflows can act on my behalf.
 
-Everything in that workspace and this repo has been created/configured manually.
+That allows me to automate 90% of the my core infrastructure within this repo. 
 
-## Tailscale
+## The other 10%
 
-Token is an OAuth client generated manually and added to the workspace variables.
+A golden rule is to automate 90% and write a runbook for the other 10% as the effort to automate these 10% is huge. So this is the runbook for the 10%.
 
-Signed-up using Github, some settings can only be defined in the UI.
-Configures basic settings and ACL's.
+### Tailscale
 
-## DNS
+Sign-up: using Github
 
-Token is an API token generated manually and added to the workspace variables.
+Credentials: token is an OAuth client without expiration and all privileges
 
-My DNS provider is Hetzner DNS. There are some zones and records defined in this repo. 
+### DNS
 
-## Github
+Sign-up: manual
 
-Token is a GH PAT with sufficient permissions and no expiration, added to the workspace variables.
+Credentials: API token without expiration
 
-Manages my Github repos and stuff in them.
+DNS Zones are registered by Infomaniak and the nameservers for Hetzner DNS were added manually.
 
-## Terraform Cloud
+### Github
 
-Token is created for my User with no expiration, added to the workspace variables.
+Sign-up: manual
 
-Manages organizations, projects, workspaces and more.
+Credentials: Github Personal Access Token with sufficient permissions and no expiration 
 
-## Hashicorp Cloud
+### Terraform Cloud
+
+Sign-up: using HCP and then using Github
+
+Credentials: API Token without expiration on the user-scope (covers all orgs)
 
 The organization `technat` is created manually with the default project beeing "core".
 
-Credentials are created according to [this doc](https://registry.terraform.io/providers/hashicorp/hcp/latest/docs/guides/auth) for the entire organization.
+### Hashicorp Cloud
 
-Manages projects, vault secrets and more.
+Sign-up: using Github
 
-## AWS
+Credentials: created according to [this doc](https://registry.terraform.io/providers/hashicorp/hcp/latest/docs/guides/auth) for the entire organization.
 
-Account has been registered manually (of course) and the only resources created so far are an IDP and a role for Terraform Cloud.
+The organization `technat` is created manually with the default project beeing "core".
 
-Both according to [this blog post](https://aws.amazon.com/blogs/apn/simplify-and-secure-terraform-workflows-on-aws-with-dynamic-provider-credentials/).
+### AWS
 
-**Note**: Every resource must be tagged with "managed-by=terraform". This is because our [account-nuker](https://github.com/the-technat/account-nuker) filters resources with this tag from his regular nuke.
+Sign-up: manual (+ creating a dedicated AWS User to not work with the root user)
+
+Credentials: according to [this blog post](https://aws.amazon.com/blogs/apn/simplify-and-secure-terraform-workflows-on-aws-with-dynamic-provider-credentials/).
+
+**Note**: Every resource created here must be tagged with `managed-by=terraform`. This is to ensure [account-nuker](https://github.com/the-technat/account-nuker) filters these resources from his regular nuke.
