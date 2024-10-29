@@ -4,17 +4,13 @@ A humble attempt to define core infrastructure as code.
 
 ## Why? 
 
-As an engineer who has been born into the cloud-native world, I grew up with "Everything as code" is the way to do it. So that's why I try here in this repo, to define common infrastructure things like Github Repos, AWS IAM resources, DNS zones and records and more in code.
+As an engineer who has been born into the cloud-native world, I grew up with "Everything as code" is the way to do it. So that's why I try here in this repo, to define common infrastructure things like Github Repos, AWS IAM resources, DNS records and more in code.
 
-## How?
+This approach allows me to define 90% of the core stuff as code.
 
-I signed-up on [Terraform cloud](https://app.terraform.io/session) and created an organization for my Github user with one default project and workspace in it named like this repository. I installed the Terraform Cloud Github App into my account so that VCS-driven workflows can act on my behalf.
+## The 10%
 
-That allows me to automate 90% of the my core infrastructure within this repo. 
-
-## The other 10%
-
-A golden rule is to automate 90% and write a runbook for the other 10% as the effort to automate these 10% is huge. So this is the runbook for the 10%.
+A golden rule is to automate 90% and write a runbook for the other 10% as the effort to automate these 10% is unreasonable. So this is the runbook for the 10%.
 
 ### Tailscale
 
@@ -36,13 +32,15 @@ Sign-up: manual
 
 Credentials: Github Personal Access Token with sufficient permissions and no expiration 
 
+The core repo was created manually. Other repos were imported to Terraform.
+
 ### Terraform Cloud
 
 Sign-up: using HCP and then using Github
 
 Credentials: API Token without expiration on the user-scope (covers all orgs)
 
-The organization `technat` is created manually with the default project beeing "core".
+The organization `technat` is created manually with the default project beeing "core". A Github App was installed on my user to allow Terraform Cloud access to my repositories.
 
 ### Hashicorp Cloud
 
