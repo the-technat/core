@@ -57,3 +57,11 @@ Sign-up: manual (+ creating a dedicated AWS User to not work with the root user)
 Credentials: according to [this blog post](https://aws.amazon.com/blogs/apn/simplify-and-secure-terraform-workflows-on-aws-with-dynamic-provider-credentials/).
 
 **Note**: Every resource created here must be tagged with `managed-by=terraform`. This is to ensure [account-nuker](https://github.com/the-technat/account-nuker) filters these resources from his regular nuke.
+
+### Azure
+
+Sign-up: manual
+
+Credentials:  according to [this doc](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/azure-configuration)
+
+My manually created subscription is called `technat`.

@@ -25,3 +25,8 @@ provider "hcp" {
 provider "aws" {
   region = "eu-central-2"
 }
+
+provider "azurerm" {
+  subscription_id = "559e87b7-6bd2-4c2a-a6f4-2c0e8b5b0edb" # the subscription "technat"
+  tenant_id = "afb1b04e-8a6f-44e6-8835-db3a1ab8bee7" # my microsoft account
+}
