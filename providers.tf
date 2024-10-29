@@ -27,12 +27,13 @@ provider "aws" {
 }
 
 provider "azurerm" {
-  use_cli = false
+  features {}
+  use_cli         = false
   subscription_id = "559e87b7-6bd2-4c2a-a6f4-2c0e8b5b0edb" # the subscription "technat"
-  tenant_id = "afb1b04e-8a6f-44e6-8835-db3a1ab8bee7" # my microsoft account
+  tenant_id       = "afb1b04e-8a6f-44e6-8835-db3a1ab8bee7" # my microsoft account
 }
 
 provider "azuread" {
-  use_cli = false
+  use_cli   = false
   tenant_id = "afb1b04e-8a6f-44e6-8835-db3a1ab8bee7" # my microsoft account
 }

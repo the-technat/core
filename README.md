@@ -62,6 +62,6 @@ Credentials: according to [this blog post](https://aws.amazon.com/blogs/apn/simp
 
 Sign-up: manual
 
-Credentials:  according to [this doc](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/azure-configuration)
+Credentials:  according to [this doc](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/azure-configuration). The app is assigned the owner role in the subscription and also has `Application.ReadWrite.All` access on the Microsoft Graph API.
 
-My manually created subscription is called `technat`.
+My manually created subscription is called `technat`. 
