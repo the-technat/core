@@ -14,10 +14,18 @@ resource "azuread_service_principal" "nuker" {
   owners    = [data.azuread_client_config.current.object_id]
 }
 
-resource "azuread_application_federated_identity_credential" "nuker" {
+resource "azuread_application_federated_identity_credential" "nuker-main" {
   application_id = azuread_application.nuker.id
-  display_name   = "account-nuker-github-actions"
+  display_name   = "account-nuker-github-actions-main"
   audiences      = [local.default_audience_name]
   issuer         = local.github_issuer_url
-  subject        = "repo:the-technat/account-nuker:branch/main"
+  subject        = "repo:the-technat/account-nuker:ref:refs/heads/main"
+}
+
+resource "azuread_application_federated_identity_credential" "nuker-pr" {
+  application_id = azuread_application.nuker.id
+  display_name   = "account-nuker-github-actions-pr"
+  audiences      = [local.default_audience_name]
+  issuer         = local.github_issuer_url
+  subject        = "repo:the-technat/account-nuker:pull_request"
 }
