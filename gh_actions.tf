@@ -19,4 +19,8 @@ resource "github_actions_variable" "account-nuker-azure-subscription-id" {
   variable_name     = "AZURE_SUBSCRIPTION_ID"
   value = data.azurerm_subscription.current.subscription_id
 }
-
+resource "github_actions_variable" "account-nuker-azure-use-oidc" {
+  repository      = github_repository.account-nuker.name
+  variable_name     = "ARM_USE_AZUREAD"
+  value = "true"
+}
