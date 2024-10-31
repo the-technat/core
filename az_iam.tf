@@ -19,5 +19,5 @@ resource "azuread_application_federated_identity_credential" "nuker" {
   display_name   = "account-nuker-github-actions"
   audiences      = [local.default_audience_name]
   issuer         = local.github_issuer_url
-  subject        = "repo:the-technat/account-nuker"
+  subject        = "repo:the-technat/account-nuker:branch/main"
 }
