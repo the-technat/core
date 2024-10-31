@@ -4,23 +4,19 @@ resource "github_actions_secret" "account-nuker-aws-role" {
   plaintext_value = aws_iam_role.nuker.arn
 }
 
-resource "github_actions_variable" "account-nuker-azure-client-id" {
+resource "github_actions_secret" "account-nuker-azure-client-id" {
   repository      = github_repository.account-nuker.name
-  variable_name     = "AZURE_CLIENT_ID"
-  value = azuread_service_principal.nuker.client_id
+  secret_name     = "AZURE_CLIENT_ID"
+  plaintext_value = azuread_service_principal.nuker.client_id
 }
-resource "github_actions_variable" "account-nuker-azure-tenant-id" {
+resource "github_actions_secret" "account-nuker-azure-tenant-id" {
   repository      = github_repository.account-nuker.name
-  variable_name    = "AZURE_TENANT_ID"
-  value = data.azurerm_subscription.current.tenant_id
+  secret_name     = "AZURE_TENANT_ID"
+  plaintext_value = data.azurerm_subscription.current.tenant_id
 }
-resource "github_actions_variable" "account-nuker-azure-subscription-id" {
+resource "github_actions_secret" "account-nuker-azure-subscription-id" {
   repository      = github_repository.account-nuker.name
-  variable_name     = "AZURE_SUBSCRIPTION_ID"
-  value = data.azurerm_subscription.current.subscription_id
+  secret_name     = "AZURE_SUBSCRIPTION_ID"
+  plaintext_value = data.azurerm_subscription.current.subscription_id
 }
-resource "github_actions_variable" "account-nuker-azure-use-oidc" {
-  repository      = github_repository.account-nuker.name
-  variable_name     = "ARM_USE_AZUREAD"
-  value = "true"
-}
+
