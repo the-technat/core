@@ -28,3 +28,12 @@ data "aws_iam_openid_connect_provider" "tfc" {
 data "azurerm_subscription" "current" {}
 
 data "azuread_client_config" "current" {}
+
+# https://solideogloria.tech/terraform/grant-admin-consent-for-an-azure-ad-application-with-terraform/
+data "azuread_application_published_app_ids" "well_known" {}
+data "azuread_service_principal" "msgraph" {
+  client_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
+}
+data "azuread_service_principals" "all" {
+  return_all = true
+}
