@@ -1,3 +1,4 @@
+## account-nuker
 resource "github_actions_secret" "account-nuker-aws-role" {
   repository      = github_repository.account-nuker.name
   secret_name     = "aws_role"
@@ -7,6 +8,11 @@ resource "github_actions_secret" "account-nuker-azure-client-id" {
   repository      = github_repository.account-nuker.name
   secret_name     = "AZURE_CLIENT_ID"
   plaintext_value = azuread_service_principal.nuker.client_id
+}
+resource "github_actions_secret" "account-nuker-azure-client-secret" {
+  repository      = github_repository.account-nuker.name
+  secret_name     = "AZURE_CLIENT_SECRET"
+  plaintext_value = azuread_service_principal_password.nuker.value
 }
 resource "github_actions_secret" "account-nuker-azure-tenant-id" {
   repository      = github_repository.account-nuker.name
