@@ -1,6 +1,9 @@
 ## account-nuker
 resource "azuread_application" "nuker" {
   display_name = "nuker"
+  tags = [
+    "managed-by=terraform"
+  ]
 }
 resource "azurerm_role_assignment" "nuker" {
   scope                = data.azurerm_subscription.current.id
@@ -10,6 +13,9 @@ resource "azurerm_role_assignment" "nuker" {
 resource "azuread_service_principal" "nuker" {
   client_id = azuread_application.nuker.client_id
   owners    = [data.azuread_client_config.current.object_id]
+  tags = [
+    "managed-by=terraform"
+  ]
 }
 resource "time_rotating" "nuker" {
   rotation_days = 30
