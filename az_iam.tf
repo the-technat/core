@@ -8,6 +8,14 @@ resource "azuread_application" "nuker" {
       id   = data.azuread_service_principal.msgraph.app_role_ids["Application.ReadWrite.All"]
       type = "Role"
     }
+    resource_access {
+      id   = data.azuread_service_principal.msgraph.app_role_ids["Group.ReadWrite.All"]
+      type = "Role"
+    }
+    resource_access {
+      id   = data.azuread_service_principal.msgraph.app_role_ids["User.Read.All"]
+      type = "Role"
+    }
   }
   tags = [
     "managed-by:terraform"
