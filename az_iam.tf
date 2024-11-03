@@ -1,5 +1,5 @@
 ## account-nuker
-resource "azuread_application" "nuker" {
+resource "azuread_application" "nuker" { # explicitly ignored in account-nuker
   display_name = "nuker"
   required_resource_access {
     resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
@@ -21,7 +21,7 @@ resource "azuread_application" "nuker" {
     "managed-by\":\"terraform\""
   ]
 }
-resource "azurerm_role_assignment" "nuker" {
+resource "azurerm_role_assignment" "nuker" { # explicitly ignored in account-nuker since it doesn't support tagging
   scope                = data.azurerm_subscription.current.id
   role_definition_name = "Contributor"
   principal_id         = azuread_service_principal.nuker.object_id
@@ -51,12 +51,9 @@ resource "azuread_app_role_assignment" "nuker" {
   resource_object_id  = each.value.resource_object_id
   app_role_id         = each.value.app_role_id
 }
-resource "azuread_service_principal" "nuker" {
+resource "azuread_service_principal" "nuker" { # explicitly ignored in account-nuker
   client_id = azuread_application.nuker.client_id
   owners    = [data.azuread_client_config.current.object_id]
-  tags = [
-    "managed-by\":\"terraform\""
-  ]
 }
 resource "time_rotating" "nuker" {
   rotation_days = 30
