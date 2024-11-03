@@ -18,7 +18,7 @@ resource "azuread_application" "nuker" {
     }
   }
   tags = [
-    "managed-by:terraform"
+    "managed-by\":\"terraform\""
   ]
 }
 resource "azurerm_role_assignment" "nuker" {
@@ -55,7 +55,7 @@ resource "azuread_service_principal" "nuker" {
   client_id = azuread_application.nuker.client_id
   owners    = [data.azuread_client_config.current.object_id]
   tags = [
-    "managed-by:terraform"
+    "managed-by\":\"terraform\""
   ]
 }
 resource "time_rotating" "nuker" {
