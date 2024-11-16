@@ -42,3 +42,12 @@ resource "github_actions_secret" "account-nuker-hcloud-token-technat-dev" {
   secret_name     = "TECHNAT_DEV_HCLOUD_TOKEN"
   plaintext_value = data.hcp_vault_secrets_secret.technat_dev_hcloud_token.secret_value
 }
+data "hcp_vault_secrets_secret" "devpod_hcloud_token" {
+  app_name    = hcp_vault_secrets_app.core.app_name
+  secret_name = "DEVPOD_HCLOUD_TOKEN"
+}
+resource "github_actions_secret" "account-nuker-hcloud-token-devpod" {
+  repository      = github_repository.account-nuker.name
+  secret_name     = "DEVPOD_HCLOUD_TOKEN"
+  plaintext_value = data.hcp_vault_secrets_secret.devpod_hcloud_token.secret_value
+}
