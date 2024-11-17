@@ -52,3 +52,15 @@ variable "hcp_client_secret" {
   sensitive   = true
   description = "HCP Client Secret, provided by TFC"
 }
+
+### Minio (Hcloud S3)
+variable "minio_tevbox_access_key" {
+  type = string
+  sensitive = true
+  description = "Hcloud S3 Access Key for tevbox project"
+}
+variable "minio_tevbox_secret_key" {
+  type = string
+  sensitive = true
+  description = "Hcloud S3 Secret Key for tevbox project"
+}
