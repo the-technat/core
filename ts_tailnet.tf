@@ -131,6 +131,7 @@ resource "tailscale_acl" "as_hujson" {
           ],
           "users": [
             "autogroup:nonroot",
+            "root"
           ],
         },
         {
