@@ -46,6 +46,7 @@ resource "tailscale_acl" "as_hujson" {
           ],
           "dst": [
             "autogroup:internet:*",
+            "192.168.250.0/24:*",
           ],
         },
         // server net can access server net
