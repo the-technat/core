@@ -13,10 +13,13 @@ resource "tailscale_acl" "as_hujson" {
         ],
 
         // tags that control access
-        "tag:acl-server": [ // the server network
+        "tag:acl-server": [ // server net
           "autogroup:admin",
         ],
-        "tag:acl-backup": [
+        "tag:acl-backup": [ // backup net
+          "autogroup:admin",
+        ],
+        "tag:acl-work": [ // work devices
           "autogroup:admin",
         ],
       },
@@ -46,10 +49,9 @@ resource "tailscale_acl" "as_hujson" {
           ],
           "dst": [
             "autogroup:internet:*",
-            "192.168.250.0/24:*",
           ],
         },
-        // server net can access server net
+        // server net is used for general purpose devices that don't belong anywhere else
         {
           "action": "accept",
           "src": [
@@ -59,6 +61,8 @@ resource "tailscale_acl" "as_hujson" {
             "tag:acl-server:*",
           ],
         },
+        // backup net is used for devices that serve as backup endpoints (thus only restricted access to them from the outside)
+        // they need to backup from one device to another inside the net
         {
           "action": "accept",
           "src": [
@@ -68,7 +72,7 @@ resource "tailscale_acl" "as_hujson" {
             "tag:acl-backup:*",
           ],
         },
-        // me can access my own devices and acl-server 
+        // me can unconditionally access my own devices, the server net and the advertised route for local LAN
         {
           "action": "accept",
           "src": [
@@ -77,9 +81,10 @@ resource "tailscale_acl" "as_hujson" {
           "dst": [
             "the-technat@github:*",
             "tag:acl-server:*",
+            "192.168.250.0/24:*",
           ],
         },
-        // me can access acl-backup restricted
+        // me can access acl-backup on certain ports
         {
           "action": "accept",
           "src": [
@@ -89,6 +94,17 @@ resource "tailscale_acl" "as_hujson" {
             "tag:acl-backup:5000,5001,443,80,22,445",
           ],
         },
+        // me can access work devices on certain ports
+        {
+          "action": "accept",
+          "src": [
+            "the-technat@github",
+          ],
+          "dst": [
+            "tag:acl-work:5900,443,80,22",
+          ],
+        },
+
       ],
       "ssh": [
         {
@@ -99,6 +115,19 @@ resource "tailscale_acl" "as_hujson" {
           ],
           "dst": [
             "tag:acl-backup",
+          ],
+          "users": [
+            "autogroup:nonroot",
+          ],
+        },
+        {
+          // me can ssh into acl-work with checking
+          "action": "check",
+          "src": [
+            "the-technat@github",
+          ],
+          "dst": [
+            "tag:acl-work",
           ],
           "users": [
             "autogroup:nonroot",
