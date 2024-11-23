@@ -191,8 +191,8 @@ resource "github_repository" "cappy" {
   has_issues      = true
 }
 
-resource "github_repository" "wish" {
-  name        = "wish"
+resource "github_repository" "wishlist" {
+  name        = "wishlist"
   description = "Repo to deploy family wishlist"
   visibility  = "public"
 
