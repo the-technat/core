@@ -100,3 +100,14 @@ resource "github_actions_secret" "tevbox-ts_api_key" {
   secret_name     = "TAILSCALE_API_KEY"
   plaintext_value = data.hcp_vault_secrets_secret.tevbox_ts_api_key.secret_value
 }
+
+## wunsch
+data "hcp_vault_secrets_secret" "wunsch_fly_token" {
+  app_name    = hcp_vault_secrets_app.core.app_name
+  secret_name = "FLY_TOKEN_WUNSCH"
+}
+resource "github_actions_secret" "wunsch-fly_token" {
+  repository      = github_repository.wunsch.name
+  secret_name     = "FLY_API_TOKEN"
+  plaintext_value = data.hcp_vault_secrets_secret.wunsch_fly_token.secret_value
+}
