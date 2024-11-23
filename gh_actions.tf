@@ -102,12 +102,12 @@ resource "github_actions_secret" "tevbox-ts_api_key" {
 }
 
 ## wunsch
-data "hcp_vault_secrets_secret" "wunsch_fly_token" {
+data "hcp_vault_secrets_secret" "wish_fly_token" {
   app_name    = hcp_vault_secrets_app.core.app_name
-  secret_name = "FLY_TOKEN_WUNSCH"
+  secret_name = "FLY_TOKEN_WISH"
 }
-resource "github_actions_secret" "wunsch-fly_token" {
-  repository      = github_repository.wunsch.name
+resource "github_actions_secret" "wish-fly_token" {
+  repository      = github_repository.wish.name
   secret_name     = "FLY_API_TOKEN"
-  plaintext_value = data.hcp_vault_secrets_secret.wunsch_fly_token.secret_value
+  plaintext_value = data.hcp_vault_secrets_secret.wish_fly_token.secret_value
 }
