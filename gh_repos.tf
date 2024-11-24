@@ -190,14 +190,3 @@ resource "github_repository" "cappy" {
   has_discussions = false
   has_issues      = true
 }
-
-resource "github_repository" "wishlist" {
-  name        = "wishlist"
-  description = "Repo to deploy family wishlist"
-  visibility  = "public"
-
-  has_projects    = false
-  has_wiki        = false
-  has_discussions = false
-  has_issues      = true
-}

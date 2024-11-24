@@ -43,15 +43,6 @@ resource "github_actions_secret" "account-nuker-hcloud-token-technat-dev" {
   secret_name     = "TECHNAT_DEV_HCLOUD_TOKEN"
   plaintext_value = data.hcp_vault_secrets_secret.technat_dev_hcloud_token.secret_value
 }
-data "hcp_vault_secrets_secret" "devpod_hcloud_token" {
-  app_name    = hcp_vault_secrets_app.core.app_name
-  secret_name = "DEVPOD_HCLOUD_TOKEN"
-}
-resource "github_actions_secret" "account-nuker-hcloud-token-devpod" {
-  repository      = github_repository.account-nuker.name
-  secret_name     = "DEVPOD_HCLOUD_TOKEN"
-  plaintext_value = data.hcp_vault_secrets_secret.devpod_hcloud_token.secret_value
-}
 
 
 ## tevbox
@@ -99,15 +90,4 @@ resource "github_actions_secret" "tevbox-ts_api_key" {
   repository      = github_repository.tevbox.name
   secret_name     = "TAILSCALE_API_KEY"
   plaintext_value = data.hcp_vault_secrets_secret.tevbox_ts_api_key.secret_value
-}
-
-## wunsch
-data "hcp_vault_secrets_secret" "wishlist_fly_token" {
-  app_name    = hcp_vault_secrets_app.core.app_name
-  secret_name = "FLY_TOKEN_WISH"
-}
-resource "github_actions_secret" "wishlist-fly_token" {
-  repository      = github_repository.wishlist.name
-  secret_name     = "FLY_API_TOKEN"
-  plaintext_value = data.hcp_vault_secrets_secret.wishlist_fly_token.secret_value
 }
