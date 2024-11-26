@@ -11,7 +11,7 @@ resource "hetznerdns_record" "root_a" {
 resource "hetznerdns_record" "flasche_a" {
   zone_id = hetznerdns_zone.alleaffengaffen_ch.id
   name    = "flasche"
-  value   = "45.43.163.225"
+  value   = "147.185.221.24"
   type    = "A"
   ttl     = 3600
 }
@@ -47,7 +47,7 @@ resource "hetznerdns_record" "gh_pages_txt" {
 resource "hetznerdns_record" "flasche_srv" {
   zone_id = hetznerdns_zone.alleaffengaffen_ch.id
   name    = "_minecraft._tcp.flasche"
-  value   = "0 0 25654 flasche.alleaffengaffen.ch."
+  value   = "0 0 7738 flasche.alleaffengaffen.ch."
   type    = "SRV"
   ttl     = 3600
 }
