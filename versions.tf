@@ -39,10 +39,5 @@ terraform {
       source  = "hashicorp/azuread"
       version = "3.0.2"
     }
-    minio = {
-      source = "aminueza/minio"
-      version = "3.2.1"
-      configuration_aliases = [ minio.tevbox ]
-    } 
   }
 }

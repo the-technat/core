@@ -37,12 +37,3 @@ provider "azuread" {
   use_cli   = false
   tenant_id = "afb1b04e-8a6f-44e6-8835-db3a1ab8bee7" # my microsoft account
 }
-
-provider "minio" {
-  alias = "tevbox"
-  minio_server   = "fsn1.your-objectstorage.com"
-  minio_user     = var.minio_tevbox_access_key
-  minio_password = var.minio_tevbox_secret_key
-  minio_region   = "fsn1"
-  minio_ssl      = true
-}
