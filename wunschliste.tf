@@ -43,6 +43,9 @@ resource "github_repository_environment_deployment_policy" "wunschliste_live" {
   environment    = github_repository_environment.wunschliste_prod.environment
   branch_pattern = "live"
 }
+data "hcp_vault_secrets_app" "wunschliste" {
+  app_name = hcp_vault_secrets_app.wunschliste.app_name
+}
 data "hcp_vault_secrets_secret" "wunschliste_prod-username" {
   app_name    = hcp_vault_secrets_app.wunschliste.app_name
   secret_name = "PROD_USERNAME"
