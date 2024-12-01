@@ -37,3 +37,7 @@ data "azuread_service_principal" "msgraph" {
 data "azuread_service_principals" "all" {
   return_all = true
 }
+
+data "hcp_service_principal" "core" {
+  resource_name = "iam/organization/06a1a939-ba11-4b3b-97a5-f44ce781e88b/service-principal/core"
+}

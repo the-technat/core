@@ -45,54 +45,55 @@ resource "github_repository_environment_deployment_policy" "wunschliste_live" {
 }
 data "hcp_vault_secrets_app" "wunschliste" {
   app_name = hcp_vault_secrets_app.wunschliste.app_name
+  project_id = hcp_project.wunschliste.resource_id
 }
-resource "github_actions_environment_secret" "wunschliste_prod-username" {
-  repository     = github_repository.wunschliste.name
-  environment    = github_repository_environment.wunschliste_prod.environment
-  secret_name     = "FLATNOTES_USERNAME"
-  plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["PROD_USERNAME"]
-}
-resource "github_actions_environment_secret" "wunschliste_prod-password" {
-  repository     = github_repository.wunschliste.name
-  environment    = github_repository_environment.wunschliste_prod.environment
-  secret_name     = "FLATNOTES_PASSWORD"
-  plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["PROD_PASSWORD"]
-}
-resource "github_actions_environment_secret" "wunschliste_prod-secret-key" {
-  repository     = github_repository.wunschliste.name
-  environment    = github_repository_environment.wunschliste_prod.environment
-  secret_name     = "FLATNOTES_SECRET_KEY"
-  plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["PROD_SECRET_KEY"]
-}
+# resource "github_actions_environment_secret" "wunschliste_prod-username" {
+#   repository     = github_repository.wunschliste.name
+#   environment    = github_repository_environment.wunschliste_prod.environment
+#   secret_name     = "FLATNOTES_USERNAME"
+#   plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["PROD_USERNAME"]
+# }
+# resource "github_actions_environment_secret" "wunschliste_prod-password" {
+#   repository     = github_repository.wunschliste.name
+#   environment    = github_repository_environment.wunschliste_prod.environment
+#   secret_name     = "FLATNOTES_PASSWORD"
+#   plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["PROD_PASSWORD"]
+# }
+# resource "github_actions_environment_secret" "wunschliste_prod-secret-key" {
+#   repository     = github_repository.wunschliste.name
+#   environment    = github_repository_environment.wunschliste_prod.environment
+#   secret_name     = "FLATNOTES_SECRET_KEY"
+#   plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["PROD_SECRET_KEY"]
+# }
 
 ## general action secrets
-resource "github_actions_secret" "wunschliste_review_username" {
-  repository      = github_repository.wunschliste.name
-  secret_name     = "REVIEW_USERNAME"
-  plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["REVIEW_USERNAME"]
-}
-resource "github_actions_secret" "wunschliste_review_password" {
-  repository      = github_repository.wunschliste.name
-  secret_name     = "REVIEW_PASSWORD"
-  plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["REVIEW_PASSWORD"]
-}
-resource "github_actions_secret" "wunschliste_review-secret-key" {
-  repository      = github_repository.wunschliste.name
-  secret_name     = "REVIEW_SECRET_KEY"
-  plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["REVIEW_SECRET_KEY"]
-}
-resource "github_actions_secret" "wunschliste_fly-org-token" {
-  repository      = github_repository.wunschliste.name
-  secret_name     = "FLY_ORG_API_TOKEN"
-  plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["FLY_ORG_API_TOKEN"]
-}
-resource "github_actions_secret" "wunschliste_gh-app-id" {
-  repository      = github_repository.wunschliste.name
-  secret_name     = "GH_APP_ID"
-  plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["GH_APP_ID"]
-}
-resource "github_actions_secret" "wunschliste_gh-app-private-key" {
-  repository      = github_repository.wunschliste.name
-  secret_name     = "GH_APP_PRIVATE_KEY"
-  plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["GH_APP_PRIVATE_KEY"]
-}
+# resource "github_actions_secret" "wunschliste_review_username" {
+#   repository      = github_repository.wunschliste.name
+#   secret_name     = "REVIEW_USERNAME"
+#   plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["REVIEW_USERNAME"]
+# }
+# resource "github_actions_secret" "wunschliste_review_password" {
+#   repository      = github_repository.wunschliste.name
+#   secret_name     = "REVIEW_PASSWORD"
+#   plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["REVIEW_PASSWORD"]
+# }
+# resource "github_actions_secret" "wunschliste_review-secret-key" {
+#   repository      = github_repository.wunschliste.name
+#   secret_name     = "REVIEW_SECRET_KEY"
+#   plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["REVIEW_SECRET_KEY"]
+# }
+# resource "github_actions_secret" "wunschliste_fly-org-token" {
+#   repository      = github_repository.wunschliste.name
+#   secret_name     = "FLY_ORG_API_TOKEN"
+#   plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["FLY_ORG_API_TOKEN"]
+# }
+# resource "github_actions_secret" "wunschliste_gh-app-id" {
+#   repository      = github_repository.wunschliste.name
+#   secret_name     = "GH_APP_ID"
+#   plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["GH_APP_ID"]
+# }
+# resource "github_actions_secret" "wunschliste_gh-app-private-key" {
+#   repository      = github_repository.wunschliste.name
+#   secret_name     = "GH_APP_PRIVATE_KEY"
+#   plaintext_value = data.hcp_vault_secrets_app.wunschliste.secrets["GH_APP_PRIVATE_KEY"]
+# }
