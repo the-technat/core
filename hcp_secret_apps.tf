@@ -3,3 +3,9 @@ resource "hcp_vault_secrets_app" "core" {
   description = "core secrets to be put into other core things"
   # core secrets are stored in there manually and can then be configured in other places
 }
+
+resource "hcp_vault_secrets_app" "wunschliste" {
+  app_name    = "wunschliste"
+  description = "Secrets related to the wunschliste project"
+  project_id = hcp_project.wunschliste.name
+}

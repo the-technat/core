@@ -190,3 +190,14 @@ resource "github_repository" "cappy" {
   has_discussions = false
   has_issues      = true
 }
+ 
+resource "github_repository" "wunschliste" {
+  name        = "wunschliste"
+  description = "A fork of flatnotes modified to be used as wishlist for our family"
+  visibility  = "public"
+
+  has_projects    = false
+  has_wiki        = false
+  has_discussions = false
+  has_issues      = true
+}
