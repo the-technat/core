@@ -1,5 +1,5 @@
 ## branch ruleset
-resource "github_repository_ruleset" "example" {
+resource "github_repository_ruleset" "wunschliste_default" {
   name        = "default"
   repository  = github_repository.wunschliste.name
   target      = "branch"
@@ -34,7 +34,7 @@ resource "github_repository_environment" "wunschliste_prod" {
   environment         = "prod"
   repository          = github_repository.wunschliste.name
   deployment_branch_policy {
-    protected_branches     = true
+    protected_branches     = false
     custom_branch_policies = true
   }
 }
