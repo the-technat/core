@@ -1,6 +1,7 @@
 resource "hcp_vault_secrets_app" "core" {
   app_name    = "core"
   description = "core secrets to be put into other core things"
+  project_id    = data.hcp_project.core.resource_id
   # core secrets are stored in there manually and can then be configured in other places
 }
 
