@@ -21,7 +21,7 @@ terraform {
       version = "6.4.0"
     }
     tfe = {
-      version = "0.59.0"
+      version = "0.60.1"
     }
     hcp = {
       source  = "hashicorp/hcp"
