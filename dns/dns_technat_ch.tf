@@ -33,7 +33,7 @@ resource "hetznerdns_record" "technat_ch_www_cname" {
 resource "hetznerdns_record" "technat_ch_domainkey" {
   zone_id = hetznerdns_zone.technat_ch.id
   name    = "sig1._domainkey"
-  value   = "sig1.dkim.technat.ch.at.icloudmailadmin.com.."
+  value   = "sig1.dkim.technat.ch.at.icloudmailadmin.com."
   type    = "CNAME"
   ttl     = 3600
 }
@@ -65,14 +65,14 @@ resource "hetznerdns_record" "technat_ch_txt_spf" {
 resource "hetznerdns_record" "technat_ch_mx1" {
   zone_id = hetznerdns_zone.technat_ch.id
   name    = "@"
-  value   = "mx01.mail.icloud.com.."
+  value   = "mx01.mail.icloud.com."
   type    = "MX"
   ttl     = 3600
 }
 resource "hetznerdns_record" "technat_ch_mx2" {
   zone_id = hetznerdns_zone.technat_ch.id
   name    = "@"
-  value   = "mx02.mail.icloud.com.."
+  value   = "mx02.mail.icloud.com."
   type    = "MX"
   ttl     = 3600
 }
