@@ -43,3 +43,8 @@ data "terraform_remote_state" "aws" {
     }
   }
 }
+
+data "tfe_workspace" "gh" {
+  name         = "gh"
+  organization = "technat"
+}

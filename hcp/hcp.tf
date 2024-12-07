@@ -1,3 +1,4 @@
+### Hashicorp Cloud
 terraform {
   backend "remote" {
     hostname     = "app.terraform.io"
@@ -14,7 +15,6 @@ terraform {
     }
   }
 }
-
 
 provider "hcp" {
   client_id     = var.hcp_client_id
@@ -33,7 +33,6 @@ data "hcp_service_principal" "core" {
   resource_name = "iam/organization/06a1a939-ba11-4b3b-97a5-f44ce781e88b/service-principal/core"
 }
 
-### Hashicorp Cloud
 variable "hcp_client_id" {
   type        = string
   sensitive   = true

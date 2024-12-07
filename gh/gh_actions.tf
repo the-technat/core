@@ -2,31 +2,31 @@
 resource "github_actions_secret" "account-nuker-aws-role" {
   repository      = github_repository.account-nuker.name
   secret_name     = "aws_role"
-  plaintext_value = aws_iam_role.nuker.arn
+  plaintext_value = data.terraform_remote_state.aws.outputs.iam_role_nuker_arn
 }
 resource "github_actions_secret" "account-nuker-azure-client-id" {
   repository      = github_repository.account-nuker.name
   secret_name     = "AZURE_CLIENT_ID"
-  plaintext_value = azuread_service_principal.nuker.client_id
+  plaintext_value = data.terraform_remote_state.az.outputs.sp_nuker_client_id
 }
 resource "github_actions_secret" "account-nuker-azure-client-secret" {
   repository      = github_repository.account-nuker.name
   secret_name     = "AZURE_CLIENT_SECRET"
-  plaintext_value = azuread_service_principal_password.nuker.value
+  plaintext_value = data.terraform_remote_state.az.outputs.sp_nuker_client_secret
 }
 resource "github_actions_secret" "account-nuker-azure-tenant-id" {
   repository      = github_repository.account-nuker.name
   secret_name     = "AZURE_TENANT_ID"
-  plaintext_value = data.azurerm_subscription.current.tenant_id
+  plaintext_value = data.terraform_remote_state.az.outputs.tenant_id
 }
 resource "github_actions_secret" "account-nuker-azure-subscription-id" {
   repository      = github_repository.account-nuker.name
   secret_name     = "AZURE_SUBSCRIPTION_ID"
-  plaintext_value = data.azurerm_subscription.current.subscription_id
+  plaintext_value = data.terraform_remote_state.az.outputs.subscription_id
 }
 
 data "hcp_vault_secrets_secret" "tevbox_hcloud_token" {
-  app_name    = hcp_vault_secrets_app.core.app_name
+  app_name    = "core"
   secret_name = "TEVBOX_HCLOUD_TOKEN"
 }
 resource "github_actions_secret" "account-nuker-hcloud-token-tevbox" {
@@ -35,7 +35,7 @@ resource "github_actions_secret" "account-nuker-hcloud-token-tevbox" {
   plaintext_value = data.hcp_vault_secrets_secret.tevbox_hcloud_token.secret_value
 }
 data "hcp_vault_secrets_secret" "technat_dev_hcloud_token" {
-  app_name    = hcp_vault_secrets_app.core.app_name
+  app_name    = "core"
   secret_name = "TECHNAT_DEV_HCLOUD_TOKEN"
 }
 resource "github_actions_secret" "account-nuker-hcloud-token-technat-dev" {
@@ -47,7 +47,7 @@ resource "github_actions_secret" "account-nuker-hcloud-token-technat-dev" {
 
 ## tevbox
 data "hcp_vault_secrets_secret" "tevbox_actions_hcloud_token" {
-  app_name    = hcp_vault_secrets_app.core.app_name
+  app_name    = "core"
   secret_name = "TEVBOX_ACTIONS_HCLOUD_TOKEN"
 }
 resource "github_actions_secret" "tevbox-hcloud-token-tevbox_actions" {
@@ -56,7 +56,7 @@ resource "github_actions_secret" "tevbox-hcloud-token-tevbox_actions" {
   plaintext_value = data.hcp_vault_secrets_secret.tevbox_actions_hcloud_token.secret_value
 }
 data "hcp_vault_secrets_secret" "tevbox_hetzner_dns_token" {
-  app_name    = hcp_vault_secrets_app.core.app_name
+  app_name    = "core"
   secret_name = "TEVBOX_HETZNER_DNS_TOKEN"
 }
 resource "github_actions_secret" "tevbox-hetzner-dns-token" {
@@ -65,11 +65,11 @@ resource "github_actions_secret" "tevbox-hetzner-dns-token" {
   plaintext_value = data.hcp_vault_secrets_secret.tevbox_hetzner_dns_token.secret_value
 }
 data "hcp_vault_secrets_secret" "tevbox_hcloud_s3_access_key" {
-  app_name    = hcp_vault_secrets_app.core.app_name
+  app_name    = data.hcp_vault_secrets_app.core.app_name
   secret_name = "TEVBOX_HCLOUD_ACCESS_KEY"
 }
 data "hcp_vault_secrets_secret" "tevbox_hcloud_s3_secret_key" {
-  app_name    = hcp_vault_secrets_app.core.app_name
+  app_name    = "core"
   secret_name = "TEVBOX_HCLOUD_SECRET_KEY"
 }
 resource "github_actions_secret" "tevbox-hcloud-access-key" {
@@ -83,7 +83,7 @@ resource "github_actions_secret" "tevbox-hcloud-secret-key" {
   plaintext_value = data.hcp_vault_secrets_secret.tevbox_hcloud_s3_secret_key.secret_value
 }
 data "hcp_vault_secrets_secret" "tevbox_ts_api_key" {
-  app_name    = hcp_vault_secrets_app.core.app_name
+  app_name    = "core"
   secret_name = "TEVBOX_TAILSCALE_API_KEY"
 }
 resource "github_actions_secret" "tevbox-ts_api_key" {
