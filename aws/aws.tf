@@ -20,8 +20,8 @@ provider "aws" {
 }
 
 locals {
-    aws_admin_policy_arn           = "arn:aws:iam::aws:policy/AdministratorAccess"
-      github_issuer_url              = "https://token.actions.githubusercontent.com"
+  aws_admin_policy_arn           = "arn:aws:iam::aws:policy/AdministratorAccess"
+  github_issuer_url              = "https://token.actions.githubusercontent.com"
 }
 
 data "aws_caller_identity" "current" {}
