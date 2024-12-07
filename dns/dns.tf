@@ -10,14 +10,14 @@ terraform {
   }
   required_providers {
     hetznerdns = {
-      source  = "timohirt/hetznerdns"
-      version = "2.2.0"
+      source  = "germanbrew/hetznerdns"
+      version = "3.3.1"
     }
   }
 }
 
 provider "hetznerdns" {
-  apitoken = var.hetzner_dns_token
+  api_token = var.hetzner_dns_token
 }
 
 variable "hetzner_dns_token" {

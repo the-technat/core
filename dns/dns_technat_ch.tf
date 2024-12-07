@@ -49,14 +49,14 @@ resource "hetznerdns_record" "technat_ch_gh_pages_txt" {
 resource "hetznerdns_record" "technat_ch_txt_apple_domain" {
   zone_id = hetznerdns_zone.technat_ch.id
   name    = "@"
-  value   = "\"apple-domain=jgaca9vNIXDfdTs8\""
+  value   = "apple-domain=jgaca9vNIXDfdTs8"
   type    = "TXT"
   ttl     = 3600
 }
 resource "hetznerdns_record" "technat_ch_txt_spf" {
   zone_id = hetznerdns_zone.technat_ch.id
   name    = "@"
-  value   = "\"v=spf1 include:icloud.com ~all\""
+  value   = "v=spf1 include:icloud.com ~all"
   type    = "TXT"
   ttl     = 3600
 }
@@ -65,14 +65,14 @@ resource "hetznerdns_record" "technat_ch_txt_spf" {
 resource "hetznerdns_record" "technat_ch_mx1" {
   zone_id = hetznerdns_zone.technat_ch.id
   name    = "@"
-  value   = "mx01.mail.icloud.com."
+  value   = "10 mx01.mail.icloud.com."
   type    = "MX"
   ttl     = 3600
 }
 resource "hetznerdns_record" "technat_ch_mx2" {
   zone_id = hetznerdns_zone.technat_ch.id
   name    = "@"
-  value   = "mx02.mail.icloud.com."
+  value   = "10 mx02.mail.icloud.com."
   type    = "MX"
   ttl     = 3600
 }
