@@ -33,7 +33,13 @@ data "tfe_organization" "technat" {
   name = "technat"
 }
 
-data "tfe_outputs" "aws" {
-  organization = "technat"
-  workspace = "aws"
+data "terraform_remote_state" "aws" {
+  backend = "remote"
+
+  config = {
+    organization = "technat"
+    workspaces = {
+      name = "aws"
+    }
+  }
 }
