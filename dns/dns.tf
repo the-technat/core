@@ -5,7 +5,7 @@ terraform {
     organization = "technat"
 
     workspaces {
-      name = "core"
+      name = "dns"
     }
   }
   required_providers {
