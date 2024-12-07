@@ -13,7 +13,7 @@ resource "tfe_workspace" "cappy" {
 
 resource "tfe_variable" "tfc_aws_run_role_arn_cappy" {
   key          = "TFC_AWS_RUN_ROLE_ARN"
-  value        = aws_iam_role.cappy.arn
+  value        = data.tfe_outputs.aws.iam_role_cappy_arn
   category     = "env"
   workspace_id = tfe_workspace.cappy.id
 }

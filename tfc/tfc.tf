@@ -32,3 +32,8 @@ locals {
 data "tfe_organization" "technat" {
   name = "technat"
 }
+
+data "tfe_outputs" "aws" {
+  organization = "technat"
+  workspace = "aws"
+}

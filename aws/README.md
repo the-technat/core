@@ -4,7 +4,7 @@ Sign-up: manual (+ creating a dedicated AWS User to not work with the root user)
 
 Link: aws.amazon.com
 
-State sharing: with gh workspace
+State sharing: with gh and tfc workspace
 
 Credentials: according to [this blog post](https://aws.amazon.com/blogs/apn/simplify-and-secure-terraform-workflows-on-aws-with-dynamic-provider-credentials/).
 
