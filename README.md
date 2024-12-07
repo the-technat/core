@@ -10,66 +10,6 @@ This approach allows me to define 90% of everything as code.
 
 ## The 10%
 
-A golden rule is to automate 90% and write a runbook for the other 10% as the effort to automate these 10% is unreasonable. So this is the runbook for the 10%.
+A golden rule is to automate 90% and write a runbook for the other 10% as the effort to automate these 10% is unreasonable. So every directory representing a service contains a README that documents the 10% done manually per account.
 
-### Terraform Cloud - TFC
-
-Sign-up: using HCP and then using Github
-
-Credentials: API Token without expiration on the user-scope (covers all orgs)
-
-The organization `technat` is created manually with the default project beeing "core". A Github App was installed on my user to allow Terraform Cloud access to my repositories. Every subsequent service in this list has a dedicated workspace in the mentioned "core" project, of course created manually.
-
-### Tailscale
-
-Sign-up: using Github
-
-Credentials: token is an OAuth client without expiration and all privileges
-
-### DNS
-
-Sign-up: manual
-
-Credentials: API token without expiration
-
-DNS Zones are registered by Infomaniak and the nameservers for Hetzner DNS were added manually.
-
-### Github
-
-Sign-up: manual
-
-Credentials: Github Personal Access Token with sufficient permissions and no expiration 
-
-The core repo was created manually. Other repos were imported to Terraform.
-
-
-
-### Hashicorp Cloud
-
-Sign-up: using Github
-
-Credentials: created according to [this doc](https://registry.terraform.io/providers/hashicorp/hcp/latest/docs/guides/auth) for the entire organization.
-
-The organization `technat` is created manually with the default project beeing "core".
-
-### AWS
-
-Sign-up: manual (+ creating a dedicated AWS User to not work with the root user)
-
-Credentials: according to [this blog post](https://aws.amazon.com/blogs/apn/simplify-and-secure-terraform-workflows-on-aws-with-dynamic-provider-credentials/).
-
-**Note**: Every resource created here must be tagged with `managed-by=terraform`. This is to ensure [account-nuker](https://github.com/the-technat/account-nuker) filters these resources from his regular nuke.
-
-### Azure
-
-Sign-up: manual
-
-Credentials:  according to [this doc](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/azure-configuration). The app is assigned the owner role in the subscription `technat` and also has `Application.ReadWrite.All`, `Application.ReadWrite.OwnedBy` and `AppRoleAssignment.ReadWrite.All` access on the Microsoft Graph API.
-
-**Note**: Every resource created here must be tagged with `managed-by=terraform`. This is to ensure [account-nuker](https://github.com/the-technat/account-nuker) filters these resources from his regular nuke. For Azure AD resources tagging is not supported in a way azure-nuke can use, thus Azure AD resources **must** be added manually to account-nuker's filter list!
-
-### Minio (Hcloud S3)
-
-Sign-up: manual (on Hetzner Cloud)
-
-Credentials: generated on a per-hcloud-project basis manually in the console and added to the TFC workspace, no expiration.
+To get these folders to do something, a corresponding TFE workspace in Terraform Cloud exists.

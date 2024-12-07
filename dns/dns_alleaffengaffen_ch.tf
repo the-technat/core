@@ -1,5 +1,10 @@
-# Note: these are not all records in the zone, but the static ones
+# registered by infomaniak, NS entries were added manually
+resource "hetznerdns_zone" "alleaffengaffen_ch" {
+  name = "alleaffengaffen.ch"
+  ttl  = 60
+}
 
+# Note: these are not all records in the zone, but the static ones
 # A records
 resource "hetznerdns_record" "root_a" {
   zone_id = hetznerdns_zone.alleaffengaffen_ch.id
