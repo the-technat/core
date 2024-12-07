@@ -1,6 +1,8 @@
 # DNS - Hetzner DNS
 
-Sign-up: manual
+Sign-up: manual on Hetzner Cloud
+
+Link: dns.hetzner.com
 
 Credentials: API token without expiration
 
