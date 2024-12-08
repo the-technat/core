@@ -65,7 +65,7 @@ resource "github_actions_secret" "tevbox-hetzner-dns-token" {
   plaintext_value = data.hcp_vault_secrets_secret.tevbox_hetzner_dns_token.secret_value
 }
 data "hcp_vault_secrets_secret" "tevbox_hcloud_s3_access_key" {
-  app_name    = data.hcp_vault_secrets_app.core.app_name
+  app_name    = "core"
   secret_name = "TEVBOX_HCLOUD_ACCESS_KEY"
 }
 data "hcp_vault_secrets_secret" "tevbox_hcloud_s3_secret_key" {

@@ -43,17 +43,6 @@ data "terraform_remote_state" "aws" {
     }
   }
 }
-data "terraform_remote_state" "hcp" {
-  backend = "remote"
-
-  config = {
-    organization = "technat"
-    workspaces = {
-      name = "hcp"
-    }
-  }
-}
-
 data "tfe_workspace" "gh" {
   name         = "gh"
   organization = "technat"

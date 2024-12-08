@@ -45,7 +45,6 @@ resource "github_repository_environment_deployment_policy" "wunschliste_live" {
 }
 data "hcp_vault_secrets_app" "wunschliste" {
   app_name = "wunschliste"
-  provider = hcp.hcp_wunschliste
 }
 resource "github_actions_environment_secret" "wunschliste_prod-username" {
   repository     = github_repository.wunschliste.name
