@@ -19,14 +19,14 @@ terraform {
 provider "hcp" {
   client_id     = var.hcp_client_id
   client_secret = var.hcp_client_secret
-  project_id = "15fd266b-b556-4ea4-89e2-8232dc363b30" # the default project named core
+  project_id    = "15fd266b-b556-4ea4-89e2-8232dc363b30" # the default project named core
 }
 
 provider "hcp" {
-  alias = "hcp_wunschliste"
+  alias         = "hcp_wunschliste"
   client_id     = var.hcp_client_id
   client_secret = var.hcp_client_secret
-  project_id = hcp_project.wunschliste.resource_id
+  project_id    = hcp_project.wunschliste.resource_id
 }
 
 data "hcp_service_principal" "core" {

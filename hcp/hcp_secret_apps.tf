@@ -7,5 +7,5 @@ resource "hcp_vault_secrets_app" "core" {
 resource "hcp_vault_secrets_app" "wunschliste" {
   app_name    = "wunschliste"
   description = "Secrets related to the wunschliste project"
-  project_id = hcp_project.wunschliste.resource_id
+  project_id  = hcp_project.wunschliste.resource_id
 }
