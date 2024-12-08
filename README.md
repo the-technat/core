@@ -2,6 +2,8 @@
 
 A humble attempt to define core infrastructure as code.
 
+The attempt eventually failed. It's simply not possible to configure "everything" in such a broad way via IaC and the risk that something get's accidentially recreated is much higher than that someone forgets how something was configured.
+
 ## Why? 
 
 As an engineer who has been born into the cloud-native world, I grew up with "Everything as code" is the way to do it. So that's why I try here in this repo, to define common infrastructure things like Github Repos, AWS IAM resources, DNS records and more in code.
